@@ -11,6 +11,7 @@ import { Component, Input, ElementRef } from '@angular/core';
                 display: block;
                 padding: 5px 5px;
                 position:relative;
+                transition: all 0.3s;
             }
             .dropdown-item:hover {
                 background: #303947 !important;
@@ -28,12 +29,14 @@ import { Component, Input, ElementRef } from '@angular/core';
                 width: 200px;
                 border-radius: 5px;
                 padding: 5px;
-                display: none;
+                opacity: 0;
+                visibility: hidden;
                 line-height: 16px;
                 bottom: 5px;
                 left: 40px;
                 box-sizing: border-box;
                 pointer-events: none;
+                transition: all 0.3s;
             }
             .extra:after{
                 content: " ";
@@ -51,7 +54,8 @@ import { Component, Input, ElementRef } from '@angular/core';
                 position: fixed;
             }
             .dropdown-item:hover .extra{
-                display: block;
+                opacity: 1;
+                visibility: visible;
             }
         </style>
     	<li class="dropdown-item" (mouseenter)="onEnter()" (mouseleave)="onLeave()">

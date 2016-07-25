@@ -22,6 +22,7 @@ import { DropdownItemComponent } from './dropdown-item.component';
             background: #BFCDDC;
             height: 100%;
             position: relative;
+            transition: all 0.3s;
         }
         .label.empty{
             background: white;
@@ -40,18 +41,22 @@ import { DropdownItemComponent } from './dropdown-item.component';
         }
         .option-list-wrapper {
             box-sizing: border-box;
-            display: none;
+            opacity: 0;
+            visibility: hidden;
             position: absolute;
-            top: 29px;
+            top: 25px;
             left: 0;
             width: 100%;
             background: #BFCDDC;
             border: 1px solid #B4B4B4;
             border-top: none;
             height: 150px;
+            transition: all 0.3s;
         }
         .option-list-wrapper.show {
-            display: block;
+            opacity: 1;
+            visibility: visible;
+            top: 29px;
         }
         .list-wrapper {
             overflow-y: auto;
