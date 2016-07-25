@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, ElementRef } from '@angular/core';
 import { DropdownItemComponent } from './dropdown-item.component';
 
 @Component({
@@ -67,6 +67,9 @@ import { DropdownItemComponent } from './dropdown-item.component';
             background: #DFE7EF;
             box-sizing: border-box;
         }
+        .search-input:focus {
+            outline: none;
+        }
         .search-icon {
             position: absolute;
             top: 4px;
@@ -91,12 +94,12 @@ import { DropdownItemComponent } from './dropdown-item.component';
 
             <div class="option-list-wrapper" [class.show]="showList">
                 <div class="search-input-wrapper">
-                    <input class="search-input" />
+                    <input #search class="search-input" (keyup)="updateFilterValues(search.value)"/>
                     <div class="search-icon">&#9906;</div>
                 </div>
                 <div class="list-wrapper">
                     <ul class="option-list">
-                        <dropdown-item *ngFor="let value of values"
+                        <dropdown-item *ngFor="let value of filterValues"
                             (click)="selectItem(value)"
                             [item]="value"
                             [class.selected]="value === selectedItem"
@@ -116,11 +119,32 @@ export class DropdownComponent {
     @Output()
     select = new EventEmitter();
 
+    filter: string = "";
+    filterValues: Array<Object>;
+
     showList: boolean = false;
     selectedItem: Object = null;
 
+    constructor(public element: ElementRef){}
+
+    ngOnChanges(changes) {
+        this.updateFilterValues(this.filter);
+    }
+
+    updateFilterValues(value){
+        console.log(value);
+        this.filter=value;
+        if(this.filter.trim() === "") this.filterValues = this.values;
+        else this.filterValues = this.values.filter((item) => item.label.indexOf(this.filter) > -1);
+    }
+
     onLabelClick(){
         this.showList = !this.showList;
+        if(this.showList) {
+            setTimeout(() => {
+                this.element.nativeElement.querySelector('.search-input').focus();
+            }, 300)
+        }
     }
     selectItem(value) {
         this.selectedItem = value;
