@@ -99,7 +99,7 @@ export class DropdownItemComponent {
 
             var scroll = this.element.nativeElement.parentElement.parentElement['scroll' + dir];
             var realOffset = offset - scroll;
-
+            console.log(realOffset)
             this['fixed'+dir] = realOffset;
         });
     }

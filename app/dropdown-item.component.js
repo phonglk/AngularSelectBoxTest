@@ -25,6 +25,7 @@ var DropdownItemComponent = (function () {
             } while (e = e.offsetParent);
             var scroll = _this.element.nativeElement.parentElement.parentElement['scroll' + dir];
             var realOffset = offset - scroll;
+            console.log(realOffset);
             _this['fixed' + dir] = realOffset;
         });
     };
