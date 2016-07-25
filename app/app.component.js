@@ -18,7 +18,7 @@ var AppComponent = (function () {
     }
     AppComponent.prototype.ngAfterViewInit = function () {
         var _this = this;
-        this.http.get('/data.json').subscribe(function (res) {
+        this.http.get('data.json').subscribe(function (res) {
             var data = res.json();
             _this.list = data.items.map(function (item) {
                 var newItem = Object.assign(item, {

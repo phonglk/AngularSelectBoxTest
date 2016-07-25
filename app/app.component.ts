@@ -16,7 +16,7 @@ export class AppComponent {
     constructor (private http: Http) {}
 
     ngAfterViewInit() {
-        this.http.get('/data.json').subscribe( (res: Response) => {
+        this.http.get('data.json').subscribe( (res: Response) => {
             const data = res.json();
             this.list = data.items.map(item => {
                 let newItem = Object.assign(item, {
