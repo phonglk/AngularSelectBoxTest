@@ -140,7 +140,7 @@ export class DropdownComponent {
         console.log(value);
         this.filter=value;
         if(this.filter.trim() === "") this.filterValues = this.values;
-        else this.filterValues = this.values.filter((item) => item.label.indexOf(this.filter) > -1);
+        else this.filterValues = this.values.filter((item: any) => item.label.indexOf(this.filter) > -1);
     }
 
     onLabelClick(){
