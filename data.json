@@ -1,24 +1,57 @@
 {
   "items": [
     {
-      "label": "Item 1",
-      "value": "item-1"
+      "id": 1,
+      "driver": {
+        "name": "Ai Nanfing",
+        "phone": "+65 9234 5678"
+      },
+      "vehicle": {
+        "branch": "Lamborghini Aventador C",
+        "plate": "SGD1235F"
+      }
     },
     {
-      "label": "Item 2",
-      "value": "item-2"
+      "id": 2,
+      "driver": {
+        "name": "Lee Meng Soon",
+        "phone": "+65 9445 7423"
+      },
+      "vehicle": {
+        "branch": "Lamborghini Aventador",
+        "plate": "SGD1234F"
+      }
     },
     {
-      "label": "Item 3",
-      "value": "item-3"
+      "id": 3,
+      "vehicle": {
+        "branch": "Lamborghini Aventador L",
+        "plate": "LKK1200F"
+      }
     },
     {
-      "label": "Item 4",
-      "value": "item-4"
+      "id": 4,
+      "driver": {
+        "name": "Li Nanxing",
+        "phone": "+65 9445 7422"
+      },
+      "vehicle": {
+        "branch": "Lamborghini Aventador C",
+        "plate": "SGD1235F"
+      }
     },
     {
-      "label": "Item 5",
-      "value": "item-5"
+      "driver": {
+        "name": "Lee Yinzhu",
+        "phone": "+65 9445 7522"
+      }
+    },
+    {
+      "id": 5,
+      "driver": {
+        "name": "Wee Dinzhu",
+        "phone": "+65 1000 7522"
+      }
     }
   ]
 }

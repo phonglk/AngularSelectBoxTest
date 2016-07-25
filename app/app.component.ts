@@ -18,7 +18,13 @@ export class AppComponent {
     ngAfterViewInit() {
         this.http.get('/data.json').subscribe( (res: Response) => {
             const data = res.json();
-            this.list = data.items;
+            this.list = data.items.map(item => {
+                let newItem = Object.assign(item, {
+                    label: (item.driver ? item.driver.name : '-') + ' / ' +
+                                    (item.vehicle ? item.vehicle.plate : '-'),
+                })
+                return newItem;
+            });
         })
     }
 
